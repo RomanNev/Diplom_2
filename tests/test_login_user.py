@@ -1,5 +1,7 @@
 import allure
 import pytest
+
+import data
 from stellarburgers_api import StellarBurgersApi
 
 
@@ -35,4 +37,4 @@ class TestLoginUser:
 
         assert response.status_code == 401
         assert response.json()['success'] == False
-        assert response.json()['message'] == "email or password are incorrect"
+        assert response.json()['message'] == data.ERROR_MESSAGE_INVALID_CREDENTIALS

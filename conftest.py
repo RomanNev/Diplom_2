@@ -25,7 +25,7 @@ def register_new_user_and_return_credentials(): # регистрация и уд
             "access_token": access_token
         } # возвращаем в тест креды и токен
         headers = StellarBurgersApi.auth_headers(access_token)
-        test = StellarBurgersApi.delete_user(headers=headers)  # удаляем передав токен
+        StellarBurgersApi.delete_user(headers=headers)  # удаляем передав токен
     else:
         pytest.fail(f"Не удалось зарегистрировать пользователя: {response.status_code}, {response.text}")
 

@@ -1,5 +1,6 @@
 import allure
 
+import data
 from stellarburgers_api import StellarBurgersApi
 
 @allure.feature("Создание заказа")
@@ -40,7 +41,7 @@ class TestCreateOrder:
 
         assert response.status_code == 400
         assert response.json()['success'] == False
-        assert response.json()['message'] == "Ingredient ids must be provided"
+        assert response.json()['message'] == data.ERROR_MESSAGE_INGREDIENTS_REQUIRED
 
     @allure.title("Создание заказа с невалидными ингредиентами")
     @allure.description("Проверяет, что создание заказа с невалидными ингредиентами возвращает ошибку 500.")

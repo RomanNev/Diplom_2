@@ -1,5 +1,6 @@
 import allure
 
+import data
 from stellarburgers_api import StellarBurgersApi
 
 @allure.feature("Получение заказов пользователя")
@@ -28,4 +29,4 @@ class TestGetUserOrders:
 
         assert response.status_code == 401
         assert response.json()['success'] == False
-        assert response.json()['message'] == 'You should be authorised'
+        assert response.json()['message'] == data.ERROR_MESSAGE_UNAUTHORIZED

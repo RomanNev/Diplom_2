@@ -31,7 +31,7 @@ class TestCreateUser:
 
         assert response.status_code == 403
         assert response.json()['success'] == False
-        assert response.json()['message'] == "User already exists"
+        assert response.json()['message'] == data.ERROR_MESSAGE_USER_ALREADY_EXISTS
 
     @allure.title("Создание пользователя без обязательных полей")
     @allure.description("Проверяет, что нельзя создать пользователя, если отсутствует одно из обязательных полей.")
@@ -45,4 +45,4 @@ class TestCreateUser:
 
         assert response.status_code == 403
         assert response.json()['success'] == False
-        assert response.json()['message'] == "Email, password and name are required fields"
+        assert response.json()['message'] == data.ERROR_MESSAGE_REQUIRED_FIELDS
